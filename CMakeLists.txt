@@ -12,6 +12,7 @@ find_package(Qt${QT_VERSION_MAJOR}
         Core
         Gui
         Widgets
+        Sql
 )
 qt_standard_project_setup()
 
@@ -36,4 +37,5 @@ target_link_libraries(qtMouseMover
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::Sql
 )

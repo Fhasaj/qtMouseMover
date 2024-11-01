@@ -2,6 +2,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_qtMouseMover.h"
+#include <QShortcut>
+#include <QMessageBox>
 #include <QCursor>
 #include <QTimer>
 #include <QTime>
@@ -22,10 +24,13 @@ private slots:
 
     void on_stop_btn_clicked();
 
+    void on_pause_hotkey();
+
+	void on_resume_hotkey();
+
     void on_checkBox_checkStateChanged(const Qt::CheckState& arg1);
 
     void on_timer_slider_actionTriggered(int action);
-
 
     void on_defult_main_btn_clicked();
 
@@ -64,5 +69,13 @@ private:
 	QPoint CurrentMousepos = QCursor::pos();
 	QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();
 	QTime dieTime = QTime::currentTime().addSecs(timer_value);
+	
+    QString pauseHotkey ;
+	QString resumeHotkey;
+
+    /** Keyboard Shortcuts */
+    QShortcut* PauseHotKey = new QShortcut(QKeySequence::fromString(pauseHotkey), this);
+	QShortcut* ResumeHotKey = new QShortcut(QKeySequence::fromString(resumeHotkey), this);
+
 
 };
